@@ -1,0 +1,141 @@
+<include target="_header.html" />
+<div id="categoryWrap">
+	<ul id="header_category" class="category" cond="$module_info->use_category=='Y'">
+		<li class="on"|cond="!$category"><a href="{getUrl('category','','page','')}">{$lang->total}<span cond="$count">({$count})</span></a></li>
+		<li loop="$cate_list=>$key,$val" class="on"|cond="$category==$val->category_srl"><a href="{getUrl(category,$val->category_srl,'document_srl','', 'page', '')}">{$val->title}<span cond="$val->document_count">({$val->document_count})</span></a>
+			<ul cond="count($val->children)">
+				<li loop="$val->children=>$idx,$item" class="on_"|cond="$category==$item->category_srl"><a href="{getUrl(category,$item->category_srl,'document_srl','', 'page', '')}">-{$item->title}<span cond="$item->document_count">({$item->document_count})</span></a></li>
+			</ul>
+		</li>
+	</ul>
+	<a cond="$module_info->use_category=='Y'" id="scrollLeft" href="#">&lt;</a>
+	<a cond="$module_info->use_category=='Y'" id="scrollRight" href="#">&gt;</a>
+</div>
+<script type="text/javascript">
+jQuery(function($) {
+	$(document).ready(function(){
+		$('img').each(function() {
+			Width = $(this).width();
+			Widthpx = Width + 'px';
+			if (Width > 90){    
+				$(this).parents('.link_img').css('width', Widthpx);
+			}
+		});
+	});
+});
+</script>
+<include cond="$oDocument->isExists()" target="_read.html" />
+<block cond="!$oDocument->isExists()">
+<div class="board_list" id="board_list">
+	<p cond="!$document_list" style="text-align:center">{$lang->no_documents}</p> 
+	<div cond="$document_list || $notice_list">
+		<!-- NOTICE -->
+			<ul>
+				<li loop="$notice_list=>$no,$document" class="notice item" cond="!$document->isSecret() || $document->isGranted()">
+					<table>
+						<tbody>
+						<tr>
+							<td class="link_img" rowspan="3"|cond="$document->getExtraEidValue('link_explain')" rowspan="2"|cond="!$document->getExtraEidValue('link_explain')">
+								<!--@if($document->getExtraEidValue('link_img'))-->
+								<a href="{$document->getExtraEidValue('link_url')}" target="_blank">
+									<img src="{$document->getExtraEidValue('link_img')}" alt="{$document->getTitle()}" />
+								</a>
+								<!--@else-->
+								<a class="no_banner" href="{$document->getExtraEidValue('link_url')}" target="_blank">
+									<img src="nobanner.png" alt="{$document->getTitle()}" />
+								</a>
+								<!--@end-->
+							</td>
+							<td class="link_title">
+								<span class="category" cond="$module_info->use_category=='Y' && $module_info->bannerlink_category=='display' && $document->get('category_srl')">{$cate_list[$document->get('category_srl')]->title}</span>
+								<a href="{$document->getExtraEidValue('link_url')}" target="_blank"><strong>{$document->getTitle()}</strong></a>
+							</td>
+							<td cond="$grant->manager || $document->isGranted()" rowspan="3"|cond="$document->getExtraEidValue('link_explain')" rowspan="2"|cond="!$document->getExtraEidValue('link_explain')" class="link_check">
+								<input cond="$grant->manager" type="checkbox" name="cart" value="{$document->document_srl}" class="iCheck" title="Check This Article" onclick="doAddDocumentCart(this)" checked="checked"|cond="$document->isCarted()" />
+								<a cond="$document->isGranted()" class="mod opt" href="{getUrl('document_srl',$document->document_srl, 'listStyle', $listStyle, 'cpage','')}">mod</a>
+							</td>
+						</tr>
+						<tr cond="$document->getExtraEidValue('link_explain')">
+							<td class="link_explain">
+								{$document->getExtraEidValue('link_explain')}
+							</td>
+						</tr>
+						<tr>
+							<td class="link_url">
+								<a href="{$document->getExtraEidValue('link_url')}" target="_blank">{$document->getExtraEidValue('link_url')}</a>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</li>
+				<!-- /NOTICE -->
+				<!-- LIST -->
+				<li loop="$document_list=>$no,$document" class="normal item" cond="!$document->isSecret() || $document->isGranted()">
+					<table>
+						<tbody>
+						<tr>
+							<td class="link_img" rowspan="3"|cond="$document->getExtraEidValue('link_explain')" rowspan="2"|cond="!$document->getExtraEidValue('link_explain')">
+								<!--@if($document->getExtraEidValue('link_img'))-->
+								<a href="{$document->getExtraEidValue('link_url')}" target="_blank">
+									<img src="{$document->getExtraEidValue('link_img')}" alt="{$document->getTitle()}" />
+								</a>
+								<!--@else-->
+								<a class="no_banner" href="{$document->getExtraEidValue('link_url')}" target="_blank">
+									<img src="nobanner.png" alt="{$document->getTitle()}" />
+								</a>
+								<!--@end-->
+							</td>
+							<td class="link_title">
+								<span class="category" cond="$module_info->use_category=='Y' && $module_info->bannerlink_category=='display' && $document->get('category_srl')">{$cate_list[$document->get('category_srl')]->title}</span>
+								<a href="{$document->getExtraEidValue('link_url')}" target="_blank"><strong>{$document->getTitle()}</strong></a>
+							</td>
+							<td cond="$grant->manager || $document->isGranted()" rowspan="3"|cond="$document->getExtraEidValue('link_explain')" rowspan="2"|cond="!$document->getExtraEidValue('link_explain')" class="link_check">
+								<input cond="$grant->manager" type="checkbox" name="cart" value="{$document->document_srl}" class="iCheck" title="Check This Article" onclick="doAddDocumentCart(this)" checked="checked"|cond="$document->isCarted()" />
+								<a cond="$document->isGranted()" class="mod opt" href="{getUrl('document_srl',$document->document_srl, 'listStyle', $listStyle, 'cpage','')}">mod</a>
+							</td>
+						</tr>
+						<tr cond="$document->getExtraEidValue('link_explain')">
+							<td class="link_explain">
+								{$document->getExtraEidValue('link_explain')}
+							</td>
+						</tr>
+						<tr>
+							<td class="link_url">
+								<a href="{$document->getExtraEidValue('link_url')}" target="_blank">{$document->getExtraEidValue('link_url')}</a>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</li>
+				<!-- /LIST -->
+			</ul>
+	</div>
+</div>
+<div class="list_footer">
+	<div class="pagination" cond="$document_list || $notice_list">
+		<a cond="$page != $page_navigation->first_page" href="{getUrl('page','','document_srl','','division',$division,'last_division',$last_division)}" class="direction prev"><span></span><span></span> &lt;</a> 
+		<block loop="$page_no=$page_navigation->getNextPage()">
+			<strong cond="$page==$page_no" class="now num">{$page_no}</strong> 
+			<a cond="$page!=$page_no" class="num" href="{getUrl('page',$page_no,'document_srl','','division',$division,'last_division',$last_division)}">{$page_no}</a>
+		</block>
+		<a cond="$page != $page_navigation->last_page" href="{getUrl('page',$page_navigation->last_page,'document_srl','','division',$division,'last_division',$last_division)}" class="direction next">&gt; <span></span><span></span></a>
+	</div>
+	<div class="btnArea">
+		<a cond="$grant->write_document" href="{getUrl('act','dispBoardWrite','document_srl','')}">{$lang->cmd_write}</a>
+		<a cond="$grant->manager" href="{getUrl('','module','document','act','dispDocumentManageDocument')}"  onclick="popopen(this.href,'manageDocument'); return false;">{$lang->cmd_manage_document}</a>
+	</div>
+	<form cond="$grant->view" action="{getUrl()}" method="get" onsubmit="return procFilter(this, search)" id="board_search" class="board_search" no-error-return-url="true">
+		<input type="hidden" name="vid" value="{$vid}" />
+		<input type="hidden" name="mid" value="{$mid}" />
+		<input type="hidden" name="category" value="{$category}" />
+		<input type="text" name="search_keyword" value="{htmlspecialchars($search_keyword)}" title="{$lang->cmd_search}" class="iText" />
+		<select name="search_target">
+			<option loop="$search_option=>$key,$val" value="{$key}" selected="selected"|cond="$search_target==$key">{$val}</option>
+		</select>
+		<button type="submit" onclick="xGetElementById('board_search').submit();return false;">{$lang->cmd_search}</button>
+        <a cond="$last_division" href="{getUrl('page',1,'document_srl','','division',$last_division,'last_division','')}" class="btn">{$lang->cmd_search_next}</a>
+	</form>
+	<!--// <a href="{getUrl('act','dispBoardTagList')}" class="tagSearch" title="{$lang->tag}">{$lang->tag}</a> -->
+</div>
+</block>
+<include target="_footer.html" />

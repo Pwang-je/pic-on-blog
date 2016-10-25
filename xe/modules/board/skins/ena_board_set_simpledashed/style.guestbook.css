@@ -1,0 +1,222 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,100,100italic,300italic,400italic,500,500italic);
+
+/* Board List */
+
+/* Board Read */
+.viewDocument{
+margin-bottom:30px;
+border-top:2px solid #ccc;
+border-bottom:2px solid #ccc;
+}
+.noticeDocument{
+margin-bottom:30px;
+border-top:2px solid #ccc;
+border-bottom:2px solid #ccc;
+}
+.viewDocument:last-child{
+margin-bottom:30px;
+}
+.board .read_header{
+border-bottom:1px dashed #ccc;
+}
+.board .read_header .title{
+margin:10px 0;
+}
+.board .read_header .title{
+margin-bottom:5px;
+position:relative;
+font-family: 'Roboto';
+font-weight:400;
+font-size:17px;
+}
+.board .read_header .meta{
+margin-top:0;
+margin-bottom:10px;
+}
+.board .read_header .meta .name{
+color:#777;
+}
+.board .read_header .meta .name a:link, .board .read_header .meta .name a:visited{
+color:#777;
+}
+.board .read_header .date{
+color:#777;
+float:right;
+font-family: 'Roboto';
+}
+.board .read_header .btnArea{
+display:none;
+float:right;
+position:absolute;
+top:-13px;
+right:0;
+padding:2px;
+font-family:'Nanum Gothic';
+font-size:10.5px;
+color:#777;
+}
+.noticeDocument .btnArea{
+background:#fff;
+border:1px solid #ccc;
+}
+.board .board_read:hover .btnArea{
+display:inline-block;
+}
+.board .read_header .btnArea a, .board .read_header .btnArea label{
+padding:0 2px;
+}
+.board .read_header .btnArea a:link, .board .read_header .btnArea a:visited{
+color:#777 !important;
+}
+.board .read_header .btnArea a:first-child{
+padding-left:0;
+}
+.board .read_footer .btnArea a:last-child{
+padding-right:0;
+}
+.board .read_header .btnArea .iCheck + label:before {
+    content:"선택";
+	padding:0  2px;
+	font-size:10.5px;
+}
+.board .read_header .btnArea .iCheck:checked + label:before {
+    content:"선택됨";
+    font-weight:bold;
+}
+.board .read_header .btnArea .allc .iCheck + label:before {
+    content:"전체선택";
+	padding:0  2px;
+	font-size:10.5px;
+}
+.board .read_header .btnArea .allc .iCheck:checked + label:before {
+    content:"전체선택됨";
+    font-weight:bold;
+}
+.board .read_header .btnArea .iCheck {
+    display:none;
+}
+.board .read_body{
+margin:10px 0;
+}
+
+/* Comment */
+.feedback .fbList{
+border-top:1px dashed #ccc;
+list-style-type:none;
+margin:0;
+padding:0;
+}
+.feedback .fbList .fbItem{
+position:relative;
+border-bottom:1px dashed #ccc;
+}
+.feedback .fbItem:last-of-type{
+border-bottom:0;
+}
+.feedback .fbList .replyMark{
+display:inline-block;
+position:absolute;
+top:6px;
+font-family: 'Roboto';
+font-weight:400;
+font-size:17px;
+}
+.feedback .fbList .fbItemWrap{
+margin-left:50px;
+}
+.feedback .fbList .fbMeta{
+margin:0;
+padding:10px 0;
+}
+.feedback .fbList .fbMeta .author{
+font-weight:bold;
+}
+.feedback .fbList .fbMeta .date{
+color:#777;
+float:right;
+font-family: 'Roboto';
+}
+.feedback .fbList .fbMeta .action{
+display:none;
+position:absolute;
+top:30px;
+right:0;
+font-size:10.5px;
+color:#777;
+background:#fff;
+border:1px solid #ccc;
+padding:3px;
+}
+.feedback .fbList .fbItem:hover .fbMeta .action{
+display:block;
+}
+.feedback .fbList .fbMeta .action a{
+margin-left:5px;
+}
+.feedback .fbList .fbMeta .action a:link, .feedback .fbList .fbMeta .action a:visited{
+color:#777;
+}
+.feedback .fbList .comment_body{
+padding-bottom:10px;
+}
+.feedback .fbList .indent{
+padding-left:10px;
+}
+.feedback .fbList .indent2{
+padding-left:20px;
+}
+.feedback .fbList .indent3{
+padding-left:30px;
+}
+.feedback .fbList .indent4{
+padding-left:40px;
+}
+.feedback .fbList .indent5{
+padding-left:50px;
+}
+.feedback .fbList .indent6{
+padding-left:60px;
+}
+.feedback .fbList .indent7{
+padding-left:70px;
+}
+.feedback .fbList .indent8{
+padding-left:80px;
+}
+.feedback .fbList .indent9{
+padding-left:90px;
+}
+.feedback .fbList .indent10{
+padding-left:100px;
+}
+.feedback .fbList .indent11{
+padding-left:110px;
+}
+.feedback .fbList .indent12{
+padding-left:120px;
+}
+.feedback .pagination{
+margin:0;
+padding:20px 0;
+border-bottom:1px dashed #ccc;
+}
+.feedback form .write_author{
+padding:10px 0;
+}
+.feedback button[type="submit"]{
+float:right;
+margin-top:5px;
+padding:0;
+}
+.fbFooter{
+padding:10px 0;
+border-top:1px dashed #ccc;
+text-align:right;
+}
+.read_header .secretMark, .feedback .secretMark{
+margin-left:10px;
+font-size:10px;
+font-family:'Roboto';
+font-weight:400;
+}

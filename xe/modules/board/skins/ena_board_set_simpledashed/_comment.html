@@ -1,0 +1,15 @@
+<!--@if($module_info->default_style=='diary')--> 
+	<include target="_comment_normal.html" />
+<!--@elseif($module_info->default_style=='memo')--> 
+	<include target="_comment_memo.html" /> 
+<!--@elseif($module_info->default_style=='1line_memo')--> 
+	<include target="_comment_1line.html" />
+<!--@elseif($module_info->default_style=='guestbook')--> 
+	<include target="_comment_guestbook.html" /> 
+<!--@elseif($module_info->default_style=='gallery')--> 
+	<include target="_comment_normal.html" />
+<!--@elseif($module_info->default_style=='banner_link')--> 
+	<include target="_comment_normal.html" />
+<!--@else--> <!--// 일반형, 텍스트 링크형 -->
+	<include target="_comment_normal.html" />
+<!--@end--> 

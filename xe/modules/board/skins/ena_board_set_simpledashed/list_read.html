@@ -1,0 +1,127 @@
+<include target="_header.html" />
+<include cond="$oDocument->isExists()" target="_read.html" />
+<style type="text/css">
+.write_open{text-align:center;margin-bottom:40px;}
+.write_open button{font-weight:bold;}
+</style>
+<script type="text/javascript" cond="$grant->write_document && ($module_info->default_style=='memo' || $module_info->default_style=='1line_memo' || $module_info->default_style=='guestbook')">
+jQuery(function($) {
+	$('.listWrite>.write_open>button').click(function() {
+		if ($(this).text() == '쓰기') { 
+		$(this).text('접기'); 
+		$('.listWrite>.write_form').css('display', 'block');
+		} 
+	else { 
+    $(this).text('쓰기');
+	$('.listWrite>.write_form').css('display', 'none');
+	}
+	});
+});
+</script>
+<script type="text/javascript" cond="$module_info->default_style=='1line_memo'">
+jQuery(function($) {
+	if ( $('.viewDocument:last-of-type .fbList').length === 0 ){
+		$('.viewDocument:last-of-type .board_read').css('border-bottom', '0');
+	}
+});
+</script>
+<script type="text/javascript" cond="$module_info->default_style=='guestbook'">
+jQuery(function($) {
+	if ( $('.viewDocument .fbList .fbItem').length === 0 ){
+		$('.viewDocument .fbList').css('border-top', '0');
+	}
+});
+</script>
+<div class="board_list" id="board_list">
+	<!--@if(!$oDocument->isExists())-->
+		<!--// <div class="listWrite" cond="$grant->write_document">
+			<span class="write_open"><a href="{getUrl('act','dispBoardWrite','document_srl','')}">{$lang->cmd_write}</a></span>
+        </div> -->
+		<div class="listWrite" cond="$grant->write_document && $module_info->write_toggle=='' && ($module_info->default_style=='memo' || $module_info->default_style=='1line_memo' || $module_info->default_style=='guestbook')">
+			<div class="write_open">
+				<button type="button">{$lang->cmd_write}</button>
+			</div>
+			<div class="write_form" style="display:none;">
+				<include target="write_form_simple.html" />
+			</div>
+        </div>
+		<div class="listWrite" cond="$grant->write_document && ($module_info->default_style=='diary' || $module_info->write_toggle=='no')" style="margin-bottom:40px;text-align:center;"><a style="font-weight:bold;" href="{getUrl('act','dispBoardWrite','document_srl','')}">{$lang->cmd_write}</a></div>
+    <!--@end-->
+	
+	<div id="categoryWrap" cond="!$oDocument->isExists()">
+		<ul id="header_category" class="category" cond="$module_info->use_category=='Y'">
+			<li class="on"|cond="!$category"><a href="{getUrl('category','','page','')}">{$lang->total}<span cond="$count">({$count})</span></a></li>
+			<li loop="$cate_list=>$key,$val" class="on"|cond="$category==$val->category_srl"><a href="{getUrl(category,$val->category_srl,'document_srl','', 'page', '')}">{$val->title}<span cond="$val->document_count">({$val->document_count})</span></a>
+				<ul cond="count($val->children)">
+					<li loop="$val->children=>$idx,$item" class="on_"|cond="$category==$item->category_srl"><a href="{getUrl(category,$item->category_srl,'document_srl','', 'page', '')}">-{$item->title}<span cond="$item->document_count">({$item->document_count})</span></a></li>
+				</ul>
+			</li>
+		</ul>
+		<a cond="$module_info->use_category=='Y'" id="scrollLeft" href="#">&lt;</a>
+		<a cond="$module_info->use_category=='Y'" id="scrollRight" href="#">&gt;</a>
+	</div>
+	
+	<block cond="!$oDocument->isExists()"><!--// 글 본문만 따로 볼 때는 리스트 출력 안 함 -->
+    <!--@if($grant->list)-->
+        <!--// notice-->
+        <!--@if($notice_list)-->
+		<div cond="$module_info->default_style=='1line_memo'" style="border-top:2px solid #ccc;"></div>
+            <!--@foreach($notice_list as $no => $oDocument)-->
+                <div class="noticeDocument">
+					<!--@if($module_info->default_style=='diary')--> 
+						<include target="_read_diary_notice.html" />
+					<!--@elseif($module_info->default_style=='memo')--> 
+						<include target="_read_memo_notice.html" /> 
+					<!--@elseif($module_info->default_style=='1line_memo')--> 
+						<include target="_read_1line_notice.html" />
+					<!--@elseif($module_info->default_style=='guestbook')--> 
+						<include target="_read_guestbook_notice.html" /> 
+					<!--@end-->
+                </div>
+            <!--@end-->
+        <!--@end-->
+		<div cond="$module_info->default_style=='memo'" style="border-top:2px solid #ccc;"></div>
+		<div cond="$module_info->default_style=='1line_memo' && !$notice_list" style="border-top:2px solid #ccc;"></div>
+        <!--// document lists -->
+        <!--@foreach($document_list as $no => $oDocument)-->
+            <div class="viewDocument">
+				<!--@if($module_info->default_style=='diary')--> 
+					<include target="_read_diary.html" />
+				<!--@elseif($module_info->default_style=='memo')--> 
+					<include target="_read_memo.html" /> 
+				<!--@elseif($module_info->default_style=='1line_memo')--> 
+					<include target="_read_1line.html" />
+				<!--@elseif($module_info->default_style=='guestbook')--> 
+					<include target="_read_guestbook.html" /> 
+				<!--@end-->
+            </div>
+        <!--@end-->
+    <!--@end-->
+	</block>
+</div>
+<div class="list_footer">
+	<div class="pagination" cond="$document_list || $notice_list">
+		<a cond="$page != $page_navigation->first_page" href="{getUrl('page','','document_srl','','division',$division,'last_division',$last_division)}" class="direction prev"><span></span><span></span> &lt;</a> 
+		<block loop="$page_no=$page_navigation->getNextPage()">
+			<strong cond="$page==$page_no" class="now num">{$page_no}</strong> 
+			<a cond="$page!=$page_no" class="num" href="{getUrl('page',$page_no,'document_srl','','division',$division,'last_division',$last_division)}">{$page_no}</a>
+		</block>
+		<a cond="$page != $page_navigation->last_page" href="{getUrl('page',$page_navigation->last_page,'document_srl','','division',$division,'last_division',$last_division)}" class="direction next">&gt; <span></span><span></span></a>
+	</div>
+	<div class="btnArea">
+		<a cond="$grant->manager" href="{getUrl('','module','document','act','dispDocumentManageDocument')}"  onclick="popopen(this.href,'manageDocument'); return false;">{$lang->cmd_manage_document}</a>
+	</div>
+	<form cond="$grant->view" action="{getUrl()}" method="get" onsubmit="return procFilter(this, search)" id="board_search" class="board_search" no-error-return-url="true">
+		<input type="hidden" name="vid" value="{$vid}" />
+		<input type="hidden" name="mid" value="{$mid}" />
+		<input type="hidden" name="category" value="{$category}" />
+		<input type="text" name="search_keyword" value="{htmlspecialchars($search_keyword)}" title="{$lang->cmd_search}" class="iText" />
+		<select name="search_target">
+			<option loop="$search_option=>$key,$val" value="{$key}" selected="selected"|cond="$search_target==$key">{$val}</option>
+		</select>
+		<button type="submit" onclick="xGetElementById('board_search').submit();return false;">{$lang->cmd_search}</button>
+        <a cond="$last_division" href="{getUrl('page',1,'document_srl','','division',$last_division,'last_division','')}" class="btn">{$lang->cmd_search_next}</a>
+	</form>
+	<!--// <a href="{getUrl('act','dispBoardTagList')}" class="tagSearch" title="{$lang->tag}">{$lang->tag}</a> -->
+</div>
+<include target="_footer.html" />

@@ -1,0 +1,9 @@
+<include target="_header.html" />
+<div class="context_message">
+    <div class="title">no permission!<!--// {$message} --></div>
+    <div class="btnArea">
+        <a cond="!$is_logged" href="{getUrl('act','dispMemberLoginForm')}">{$lang->cmd_login}</a>
+        <button type="button" onclick="history.back()">{$lang->cmd_back}</button>
+    </div>
+</div>
+<include target="_footer.html" />

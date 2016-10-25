@@ -1,0 +1,149 @@
+<load target="style.default.css" />
+<load target="board.default.js" type="body" />
+<!--// 게시판 유형 css --> 
+<!--@if($module_info->default_style=='diary')--> 
+	<load target="style.diary.css" />
+<!--@elseif($module_info->default_style=='memo')--> 
+	<load target="style.memo.css" /> 
+<!--@elseif($module_info->default_style=='1line_memo')--> 
+	<load target="style.1line.css" />
+<!--@elseif($module_info->default_style=='guestbook')--> 
+	<load target="style.guestbook.css" /> 
+<!--@elseif($module_info->default_style=='gallery')--> 
+	<load target="style.gallery.css" /> 
+<!--@elseif($module_info->default_style=='banner_link')--> 
+	<load target="style.bannerlink.css" /> 
+<!--@else--> <!--// 일반형, 텍스트 링크형 -->
+	<load target="style.normal.css" /> 
+<!--@end--> 
+<!--@if($order_type == "desc")-->
+    {@ $order_type = "asc"; }
+<!--@else-->
+    {@ $order_type = "desc"; }
+<!--@end-->
+<block cond="!$module_info->duration_new = (int)$module_info->duration_new">{@ $module_info->duration_new = 12 }</block>
+{@ $cate_list = array(); $current_key = null; }
+<!--@foreach($category_list as $key=>$val)-->
+	<!--@if(!$val->depth)-->
+		{@
+			$cate_list[$key] = $val;
+			$cate_list[$key]->children = array();
+			$current_key = $key;
+		}
+	<!--@elseif($current_key)-->
+		{@ $cate_list[$current_key]->children[] = $val }
+	<!--@end-->
+<!--@end-->
+<!-- skin title : 이나 통합 게시판 - simpleDashed, ver : 1.0.0, by 이나( http://starlight01.tistory.com/ ) - 이 주석은 지우지 마세요 -->
+<!--@if($module_info->point_color)-->
+<style type="text/css" cond="$module_info->point_color">
+.board a:hover, .board a:active,
+.pagination .now,
+button:hover, button:active,
+.read_body .secret, .feedback .secret,
+.context_data .title, .context_message .title,
+.btnArea input[type="submit"]:hover, .btnArea input[type="submit"]:active,
+.read_header .secretMark, .feedback .secretMark{color:{$module_info->point_color};}
+ul.category .on>a, ul.category .on_>a{border-color:{$module_info->point_color};}
+</style>
+<style type="text/css" cond="$module_info->point_color && $module_info->default_style=='diary'">
+.board_read .read_header .titleWrap .title:link, .board_read .read_header .titleWrap .title:visited{color:{$module_info->point_color};}
+</style>
+<style type="text/css" cond="$module_info->point_color && $module_info->default_style=='memo'">
+.board_read .read_header .titleWrap .date:link, .board_read .read_header .titleWrap .date:visited,
+.feedback .fbList .fbMeta .time{color:{$module_info->point_color};}
+</style>
+<style type="text/css" cond="$module_info->point_color && $module_info->default_style=='1line_memo'">
+.noticeDocument .read_header .name, .feedback .fbList .fbMeta .author .replyMark,
+.read_body .secretMark, .feedback .secretMark{color:{$module_info->point_color};}
+</style>
+<style type="text/css" cond="$module_info->point_color && $module_info->default_style=='gallery'">
+.board_list .notice .notice,
+.board_list .opt:link, .board_list .opt:visited, .board_list .opt,
+.board_read .read_header .category a:link, .board_read .read_header .category a:visited,
+.read_footer .sign .sign_title{color:{$module_info->point_color};}
+</style>
+<style type="text/css" cond="$module_info->point_color && $module_info->default_style=='guestbook'">
+.board .read_header .title a:link, .board .read_header .title a:visited,
+.feedback .fbList .replyMark{color:{$module_info->point_color};}
+</style>
+<style type="text/css" cond="$module_info->point_color && $module_info->default_style=='banner_link'">
+.board_list  .link_title .category, 
+.board_list .notice .link_title a:link, .board_list .notice .link_title a:visited, 
+.board_list .opt:link, .board_list .opt:visited, .board_list .opt,
+.board_read .read_header .category a:link, .board_read .read_header .category a:visited,
+.read_footer .sign .sign_title{color:{$module_info->point_color};}
+</style>
+<style type="text/css" cond="$module_info->point_color && $module_info->default_style==''">
+.board_list .notice .notice,
+.board_list .opt:link, .board_list .opt:visited, .board_list .opt,
+.board_read .read_header .category a:link, .board_read .read_header .category a:visited,
+.read_footer .sign .sign_title{color:{$module_info->point_color};}
+</style>
+<!--@end-->
+<script type="text/javascript">
+function showhide(idMyDiv){
+    var objDiv = document.getElementById(idMyDiv);
+    if(objDiv.style.display=="block"){ objDiv.style.display = "none"; }
+    else{ objDiv.style.display = "block"; }
+  }
+</script>
+<script type="text/javascript" cond="$module_info->default_style=='diary' || $module_info->default_style=='memo' || $module_info->default_style=='1line_memo' || $module_info->default_style=='guestbook'">
+//create and delete action
+function completeDocumentInserted(ret_obj)
+{
+    var error = ret_obj.error;
+    var message = ret_obj.message;
+    var mid = ret_obj.mid;
+    var document_srl = ret_obj.document_srl;
+    var category_srl = ret_obj.category_srl;
+    var url = request_uri+mid;
+    location.href = url;
+}
+function completeDocumentInserted(ret_obj)
+{
+    var error = ret_obj.error;
+    var message = ret_obj.message;
+    var mid = ret_obj.mid;
+    var document_srl = ret_obj.document_srl;
+    var category_srl = ret_obj.category_srl;
+    var url = request_uri+mid;
+    location.href = url;
+}
+function completeInsertComment(ret_obj) {
+    var error = ret_obj.error;
+    var message = ret_obj.message;
+    var mid = ret_obj.mid;
+    var document_srl = ret_obj.document_srl;
+    var comment_srl = ret_obj.comment_srl;
+    var url = request_uri+mid;
+    location.href = url;
+}
+function completeDeleteDocument(ret_obj) {
+    var error = ret_obj.error;
+    var message = ret_obj.message;
+    var mid = ret_obj.mid;
+    var page = ret_obj.page;
+    var url = request_uri+mid;
+    location.href = url;
+  }
+function completeDeleteComment(ret_obj) {
+    var error = ret_obj.error;
+    var message = ret_obj.message;
+    var mid = ret_obj.mid;
+    var document_srl = ret_obj.document_srl;
+    var page = ret_obj.page;
+    var url = request_uri+mid;
+    location.href = url;
+  }
+</script>
+{@
+ $oDocumentModel = &getModel('document');
+ $count = $oDocumentModel->getDocumentCount($val->module_srl);
+}
+<div class="board">
+	{$module_info->header_text}
+	<div class="board_header" cond="$module_info->title_image || $grant->manager">
+		<h2 cond="$module_info->title_image"><a href="{getUrl('','mid',$mid)}"><img src="{$module_info->title_image}" alt="{$module_info->title_alt}" /></a></h2>
+		<a cond="$grant->manager" class="setup" href="{getUrl('act','dispBoardAdminBoardInfo')}" title="{$lang->cmd_setup}">{$lang->cmd_setup}</a>
+	</div>

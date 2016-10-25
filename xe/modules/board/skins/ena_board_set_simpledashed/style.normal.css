@@ -1,0 +1,303 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,100,100italic,300italic,400italic,500,500italic);
+
+/* Board List */
+/* list.html */
+.board_list table, th, tr, td{
+border:0;
+}
+.board_list table{
+table-layout:fixed;
+line-height:3;
+border-top:2px solid #ccc;
+border-bottom:2px solid #ccc;
+}
+.board_list tr:hover, .board_list tr:active{
+background:#efefef;
+background:rgba(0,0,0,0.05);
+-webkit-transition: all .3s ease;
+-moz-transition: all .3s ease;
+-ms-transition: all .3s ease;
+-o-transition: all .3s ease;
+transition: all .3s ease;
+}
+.board_list tr{
+overflow:hidden;
+}
+.board_list td{
+text-align:center;
+overflow:hidden;
+text-overflow:ellipsis;
+white-space:nowrap;
+border-bottom:1px dashed #ccc;
+}
+.board_list thead{
+display:none;
+}
+.board_list .title{
+text-align:left;
+}
+.board_list .notice .title{
+font-weight:bold;
+}
+.board_list .time, .board_list .no{
+font-size:10.5px;
+}
+.board_list .no, .board_list .notice, .board_list .readNum, .board_list .voteNum{
+width:30px;
+}
+.board_list .author{
+width:50px;
+}
+.board_list .time, .board_list .check{
+width:70px;
+}
+.board_list .check{
+width:30px;
+}
+.board_list span.category{
+padding-right:5px;
+color:#888;
+}
+.board_list td.category{
+width:50px;
+padding-right:5px;
+color:#888;
+}
+.board_list .opt{
+padding-left:7px;
+font-weight:bold;
+font-size:10px;
+}
+.board_list .replyNum{
+font-size:10.5px;
+}
+.list_footer form{
+text-align:center;
+margin-top:30px;
+}
+.iText{
+width:100px;
+padding-bottom:5px;
+}
+select[name="search_target"]{
+padding-bottom:4px;
+background:transparent;
+border:0;
+border-bottom:1px solid #ccc;
+margin-left:-3px;
+}
+
+/* Board Read */
+.viewDocument{
+border-top:2px solid #ccc;
+margin-bottom:30px;
+}
+.board_read{
+margin-bottom:15px;
+}
+.board_read .read_header{
+border-bottom:1px dashed #ccc;
+}
+.board_read .read_header p{
+margin:0;
+padding:10px 0;
+}
+.board_read .read_header .title{
+overflow:hidden;
+text-overflow:ellipsis;
+white-space:nowrap;
+font-size:13px;
+font-weight:bold;
+}
+.board_read .read_header .category{
+font-size:12px;
+padding-right:3px;
+}
+.board_read .read_header .meta{
+padding-top:0;
+}
+.board_read .read_header .meta .time, .board_read .read_header .meta .sum{
+float:right;
+letter-spacing:-1px;
+font-family: 'Roboto';
+color:#777;
+}
+.board_read .read_header .meta .sum, .board_read .read_header .meta .vote{
+padding-right:7px;
+}
+.board_read .exOut{
+margin-top:15px;
+border-top:0px solid #ccc;
+border-bottom:0px solid #ccc;
+}
+.board_read .exOut table{
+width:100%;
+table-layout:fixed;
+overflow:hidden;
+text-overflow:ellipsis;
+}
+.board_read .exOut table th, .board_read .exOut table td{
+padding:10px 0;
+border-bottom:1px dashed #ccc;
+}
+.board_read .exOut table th{
+width:30%;
+}
+.read_body{
+padding:15px 0;
+}
+.read_footer{
+border-top:1px dashed #ccc;
+}
+.read_footer .tag_list .tags{
+margin:0;
+padding:10px 0;
+border-bottom:1px dashed #ccc;
+}
+.read_footer .sign{
+padding:10px 0;
+border-bottom:1px dashed #ccc;
+}
+.read_footer .sign .sign_title{
+letter-spacing:5px;
+font-weight:bold;
+}
+.read_footer .sign .sign_body p{
+margin:0;
+padding-top:10px;
+}
+.read_footer .btnArea{
+margin:0;
+padding:10px 0;
+border-bottom:2px solid #ccc;
+}
+.board_write .btnArea input, .board_write .btnArea button{
+padding:10px 5px;
+}
+.feedback{
+border-bottom:2px solid #ccc;
+}
+.feedback .fbHeader{
+margin:0;
+padding:10px 0;
+font-size:13px;
+font-weight:bold;
+border-top:2px solid #ccc;
+border-bottom:1px dashed #ccc;
+}
+.feedback .fbList{
+list-style-type:none;
+margin:0;
+padding:0;
+}
+.feedback .indentMark{
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    width: 10px;
+    height: 12px;
+    display: inline-block;
+    position: absolute;
+	top:5px;
+}
+.feedback .indentMark:after{
+    content: '';
+	border:5px solid #ccc;
+	border-right:0;
+	border-top-color:transparent;
+	border-bottom-color:transparent;
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    left: 10px;
+    top: 8px;
+}
+.feedback .fbList .fbItem{
+position:relative;
+border-bottom:1px dashed #ccc;
+}
+.feedback .fbList .fbMeta{
+margin:0;
+padding:10px 0;
+}
+.feedback .fbList .fbMeta .author{
+padding-right:3px;
+}
+.feedback .fbList .fbMeta .time{
+font-size:10.5px;
+font-family: 'Roboto';
+color:#777;
+}
+.feedback .fbList .fbMeta .action{
+float:right;
+font-size:10.5px;
+color:#777;
+display:none;
+position:absolute;
+right:0;
+}
+.feedback .fbList .fbMeta .action a{
+margin-left:5px;
+color:#777;
+}
+.feedback .fbList .fbItem:hover .action{
+display:inline;
+}
+.feedback .fbList .comment_body{
+padding-bottom:10px;
+}
+.feedback .fbList .indent{
+padding-left:10px;
+}
+.feedback .fbList .indent2{
+padding-left:20px;
+}
+.feedback .fbList .indent3{
+padding-left:30px;
+}
+.feedback .fbList .indent4{
+padding-left:40px;
+}
+.feedback .fbList .indent5{
+padding-left:50px;
+}
+.feedback .fbList .indent6{
+padding-left:60px;
+}
+.feedback .fbList .indent7{
+padding-left:70px;
+}
+.feedback .fbList .indent8{
+padding-left:80px;
+}
+.feedback .fbList .indent9{
+padding-left:90px;
+}
+.feedback .fbList .indent10{
+padding-left:100px;
+}
+.feedback .fbList .indent11{
+padding-left:110px;
+}
+.feedback .fbList .indent12{
+padding-left:120px;
+}
+.feedback .pagination{
+margin:0;
+padding:20px 0;
+border-bottom:1px dashed #ccc;
+}
+.feedback form .write_author{
+padding:10px 0;
+}
+.feedback button[type="submit"]{
+float:right;
+margin-top:5px;
+padding:0;
+}
+.feedback .secretMark{
+margin-left:10px;
+font-size:10px;
+font-family:'Roboto';
+font-weight:400;
+}

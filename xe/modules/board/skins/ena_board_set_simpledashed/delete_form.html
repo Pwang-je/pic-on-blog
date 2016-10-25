@@ -1,0 +1,18 @@
+<include target="_header.html" />
+<div cond="$oDocument->isExists()" class="context_data" style="padding:10px;border:1px solid #eee;">
+	<p class="author">
+		<strong>{$oDocument->getNickName()}</strong>
+	</p>
+	{$oDocument->getTitle()}
+</div>
+<form action="./" method="get" onsubmit="return procFilter(this, delete_document)" class="context_message">
+	<input type="hidden" name="mid" value="{$mid}" />
+	<input type="hidden" name="page" value="{$page}" />
+	<input type="hidden" name="document_srl" value="{$document_srl}" />
+	<div class="title" style="font-size:12px;">{$lang->cmd_document_do} {$lang->confirm_delete}</div>
+	<div class="btnArea">
+		<input type="submit" value="{$lang->cmd_delete}" />
+		<button type="button" onclick="history.back()">{$lang->cmd_cancel}</button>
+	</div>
+</form>
+<include target="_footer.html" />

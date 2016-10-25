@@ -1,0 +1,39 @@
+<style type="text/css" cond="$document_srl">
+	.board_read{
+	border-top:1px dashed #ccc;
+	border-bottom:1px dashed #ccc;
+	}
+</style>
+<div class="board_read">
+	<!-- READ BODY -->
+	<div class="read_body">
+		<!--@if($oDocument->isSecret() && !$oDocument->isGranted())-->
+			<!--@if(!$oDocument->get('member_srl'))-->
+			<form action="./" method="get" onsubmit="return procFilter(this, input_password)" class="secret">
+				<input type="hidden" name="mid" value="{$mid}" />
+				<input type="hidden" name="page" value="{$page}" />
+				<input type="hidden" name="document_srl" value="{$oDocument->document_srl}" />
+				<div class="desc"><label for="cpw" class="secret">secret memo...</label></div>
+				<div><input type="password" name="password" id="cpw" class="iText" /><input type="submit" value="{$lang->cmd_input}" /></div>
+			</form>
+			<!--@else-->
+			<span class="secret">secret memo...</span>
+			<!--@end-->
+		<!--@else-->
+		{$oDocument->getContent(false)}
+		<!--@end-->
+	</div>
+	<!-- /READ BODY -->
+	<!-- READ FOOTER -->
+	<div class="read_footer" cond="$grant->manager">
+		<div class="btnArea">
+			<!--// <input cond="$grant->manager" type="checkbox" name="cart" value="{$oDocument->document_srl}" class="iCheck" title="Check This Article" onclick="doAddDocumentCart(this)" checked="checked"|cond="$oDocument->isCarted()" /> 체크박스 오류시 대체용 -->
+			<input cond="$grant->manager" type="checkbox" id="ic_{$oDocument->document_srl}" name="cart" value="{$oDocument->document_srl}" class="iCheck" title="Check This Article" onclick="doAddDocumentCart(this)" checked="checked"|cond="$oDocument->isCarted()" /><label cond="$grant->manager" for="ic_{$oDocument->document_srl}"></label>
+			<a class="document_{$oDocument->document_srl}" href="#popup_menu_area" onclick="return false">추가메뉴<!--// {$lang->cmd_document_do} --></a>
+			<a cond="$oDocument->isEditable()" href="{getUrl('act','dispBoardWrite','document_srl',$oDocument->document_srl,'comment_srl','')}">{$lang->cmd_modify}</a>
+			<a cond="$oDocument->isEditable()" href="{getUrl('act','dispBoardDelete','document_srl',$oDocument->document_srl,'comment_srl','')}">{$lang->cmd_delete}</a>
+			<a href="{getUrl('document_srl','')}" cond="$document_srl">{$lang->cmd_list}</a>
+		</div>
+	</div>
+	<!-- /READ FOOTER -->
+</div>

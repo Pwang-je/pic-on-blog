@@ -1,0 +1,321 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+/* Board */
+.board, .board label, .board table, .board input, .board button, .board textarea, .board select{
+font-family:'Nanum Gothic';
+letter-spacing: -0.5px;
+font-size:12px;
+border-collapse:collapse;
+outline-style:none;
+}
+.board a, .board a:link, .board a:visited, .board a:hover, .board a:active{
+text-decoration:none;
+color:#000;
+-webkit-transition: all .3s ease;
+-moz-transition: all .3s ease;
+-ms-transition: all .3s ease;
+-o-transition: all .3s ease;
+transition: all .3s ease;
+}
+.board select{
+border:0;
+}
+.board input[type="text"], .board input[type="password"]{
+background:transparent;
+border:0;
+border-bottom:1px solid #ccc;
+}
+.board img{
+max-width:100%;
+}
+.board .userName{
+line-height:initial !important;
+}
+/* Board Header */
+.board_header{
+text-align:right;
+padding-bottom:25px;
+}
+
+/* Category Tab */
+#categoryWrap{
+position:relative;
+padding:0 10px;
+}
+ul.category ul, .category li{
+display:inline;
+list-style-type:none;
+}
+ul.category{
+margin:0 0 5px 0;
+padding:0;
+line-height:37px;
+white-space:nowrap;
+overflow-x:auto;
+overflow-y:hidden;
+-ms-overflow-style:none; 
+}
+ul.category::-webkit-scrollbar {display:none;}
+ul.category ul{
+padding:0;
+}
+ul.category a{
+padding:5px;
+padding-bottom:10px;
+}
+ul.category a:hover, ul.category a:active{
+border-bottom:2px solid #ccc;
+-webkit-transition: color .3s ease;
+-moz-transition: color .3s ease;
+-ms-transition: color .3s ease;
+-o-transition: color .3s ease;
+transition: color .3s ease;
+}
+ul.category .on>a, ul.category .on_>a{
+border-bottom:2px solid #ccc;
+}
+#scrollLeft, #scrollRight{
+font-weight:bold;
+}
+#scrollLeft{
+position:relative;
+left:-10px;
+top:-30px;
+}
+#scrollRight{
+position:relative;
+float:right;
+left:10px;
+top:-30px;
+}
+
+/* Read */
+.read_body .secret, .feedback .secret{
+font-size:10px;
+font-weight:bold;
+letter-spacing:5px;
+}
+.read_body .secret .desc, .feedback .secret .desc{
+margin-bottom:10px;
+}
+.xe_content img:hover, .xe_content img:active{
+-webkit-filter:brightness(120%);
+filter:brightness(120%);
+-webkit-transition: all .3s ease;
+-moz-transition: all .3s ease;
+-ms-transition: all .3s ease;
+-o-transition: all .3s ease;
+transition: all .3s ease;
+}
+.read_footer .fileList{
+padding:10px 0;
+border-bottom:1px dashed #ccc;
+}
+.read_footer .fileList button{
+padding:0;
+}
+.read_footer .fileList ul{
+margin:0;
+margin-top:10px;
+padding:0;
+padding-top:10px;
+border-top:1px dashed #ccc;
+}
+.read_footer .fileList ul li{
+list-style-type:none;
+}
+
+/* List footer */
+.list_footer form{
+text-align:center;
+margin-top:30px;
+}
+.iText{
+width:100px;
+padding-bottom:5px;
+}
+select[name="search_target"]{
+padding-bottom:4px;
+background:transparent;
+border:0;
+border-bottom:1px solid #ccc;
+margin-left:-3px;
+}
+
+/* Board Write */
+.write_header{
+padding:10px 0;
+border-bottom:1px dashed #ccc;
+}
+.write_header select{
+padding-bottom:4px;
+background:transparent;
+border:0;
+border-bottom:1px dashed #ccc;
+margin-right:-3px;
+width:30%;
+}
+.write_header input[type="text"]{
+width:70%;
+border-bottom:1px dashed #ccc;
+}
+.write_header .notice{
+margin:0;
+padding-top:10px;
+}
+.exForm{
+margin-bottom:15px;
+border-top:2px solid #ccc;
+border-bottom:2px solid #ccc;
+}
+.exForm table{
+width:100%;
+border:0;
+table-layout:fixed;
+}
+.exForm caption, .exForm table th, .exForm table td{
+padding:10px 0;
+border-bottom:1px dashed #ccc;
+}
+.exForm table th{
+width:30%;
+}
+.exForm table td input[type="text"]{
+ width:100%;
+}
+.exForm table td ul, .exForm table td li{
+ margin:0;
+ padding:0;
+}
+.exForm table td li{
+ list-style-type:none;
+ display:inline;
+ margin-right:7px;
+}
+.exForm table td li input[type="radio"]{
+margin-right:7px;
+}
+.write_editor{
+padding:10px 0;
+border-bottom:1px dashed #ccc;
+}
+.write_footer .write_option{
+padding:10px 0;
+border-bottom:1px dashed #ccc;
+}
+.write_footer .write_option input{
+margin:0;
+margin-right:5px;
+}
+.write_footer .write_option label{
+margin-right:7px;
+}
+.write_footer .write_author{
+border-bottom:1px dashed #ccc;
+}
+.write_footer .write_author .item{
+display:inline-block;
+padding:10px 0;
+padding-right:7px;
+}
+.write_footer .write_author label{
+display:none;
+}
+.write_footer .write_author input{
+width:100%;
+}
+.write_footer .write_author p{
+margin:0;
+padding:10px 0;
+padding-right:0;
+width:100%;
+}
+.board_write .btnArea{
+margin:0;
+}
+.board_write .btnArea input, .board_write .btnArea button{
+padding:10px 5px;
+}
+.board_write .btnArea button:last-of-type{
+padding-right:0;
+}
+
+/* Pagination */
+/* list.html | _comment.html */
+.pagination{
+text-align:center;
+margin:30px 0;
+line-height:1.5;
+}
+.pagination .num{
+padding:9px;
+}
+.pagination .now{
+font-size:16px;
+}
+/* Write Author */
+/* _read.html | write_form.html | comment_form.html */
+
+/* Write Comment */
+/* _read.html | comment_form.html */
+.write_comment label:not(.check_label){
+display:none;
+}
+.write_comment .write_form{
+margin:0;
+padding:10px 0;
+border-top:0;
+border-bottom:1px dashed #ccc;
+}
+.context_comment{
+border-top:1px dashed #ccc;
+}
+/* Context Data | Context Message */
+/* comment_form.html | delete_form.html | delete_comment_form.html | input_password_form.html | message.html */
+.context_data{
+margin:10px 0;
+padding:10%;
+}
+.context_data .author{
+margin-top:0;
+}
+.context_message{
+margin:20%;
+text-align:center;
+}
+.context_message .title{
+font-size:10px;
+font-weight:bold;
+letter-spacing:5px;
+margin-bottom:15px;
+}
+.context_message .btnArea{
+text-align:center;
+}
+/* Button */
+.btnArea a, button, input[type="submit"]{
+padding:5px;
+background:transparent;
+border:0;
+border-radius:0;
+text-shadow:none;
+box-shadow:none;
+}
+.btnArea input:hover, .btnArea input:active{
+-webkit-transition: all .3s ease;
+-moz-transition: all .3s ease;
+-ms-transition: all .3s ease;
+-o-transition: all .3s ease;
+transition: all .3s ease;
+}
+.btnArea a:hover, .btnArea a:active{
+background:transparent;
+}
+button:hover, button:active{
+-webkit-transition: all .3s ease;
+-moz-transition: all .3s ease;
+-ms-transition: all .3s ease;
+-o-transition: all .3s ease;
+transition: all .3s ease;
+}

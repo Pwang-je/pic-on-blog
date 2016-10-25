@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin version="0.2">
+    <title xml:lang="ko">이나 통합 게시판 - simpleDashed</title>
+	<title xml:lang="en">Ena board set - simpleDashed</title>
+    <description xml:lang="ko">XE 기본 게시판을 수정하였습니다. 개인 홈페이지에 맞는 여러 스타일의 스킨을 통합한 스킨입니다.</description>
+	<description xml:lang="en">based on xe default. board skin set for personal website.</description>
+    <version>1.0.0</version>
+    <date>2015-08-13</date>
+    <author email_address="applemintr@gmail.com" link="http://starlight01.tistory.com">
+        <name xml:lang="ko">이나</name>
+		<name xml:lang="en">Ena</name>
+    </author>
+    <license>LGPL v2</license>
+	<extra_vars>
+		<var name="default_style" type="radio"> 
+			<title xml:lang="ko">게시판 유형</title> 
+			<title xml:lang="en">Board Style</title> 
+			<options value="">
+				<title xml:lang="ko">일반, 텍스트 링크</title> 
+				<title xml:lang="en">Normal and Text link</title> 
+			</options>
+			<options value="diary">
+				<title xml:lang="ko">일기장</title> 
+				<title xml:lang="en">Diary</title> 
+			</options>
+			<options value="memo">
+				<title xml:lang="ko">일반 메모장</title> 
+				<title xml:lang="en">Normal Memo</title> 
+			</options>
+			<options value="1line_memo">
+				<title xml:lang="ko">한 줄 메모장</title> 
+				<title xml:lang="en">One-line Memo</title> 
+			</options>
+			<options value="gallery">
+				<title xml:lang="ko">갤러리</title> 
+				<title xml:lang="en">Gallery</title> 
+			</options>
+			<options value="guestbook">
+				<title xml:lang="ko">방명록</title> 
+				<title xml:lang="en">Guestbook</title> 
+			</options>
+			<options value="banner_link"> 
+				<title xml:lang="ko">배너 링크(확장변수 link_url, link_img 필요)</title> 
+				<title xml:lang="en">Banner Link(required extra value link_url and link_img)</title> 
+			</options>
+		</var>
+		<var name="point_color" type="text">
+            <title xml:lang="ko">포인트 색상</title>
+            <title xml:lang="en">Point color</title>
+			<description xml:lang="ko">예시 : #000000, black, rgba(0,0,0,0.5)</description>
+			<description xml:lang="en">example : #000000, black, rgba(0,0,0,0.5)</description>
+        </var>
+		<var name="title_image" type="image">
+            <title xml:lang="ko">게시판 제목 이미지</title>
+            <title xml:lang="en">Board Title Image</title>
+			<description xml:lang="ko">작성하면 화면에 표시 됨</description>
+			<description xml:lang="en">display</description>
+        </var>
+        <var name="title_alt" type="text">
+            <title xml:lang="ko">게시판 제목 이미지 alt</title>
+            <title xml:lang="en">Board Title Image</title>
+			<description xml:lang="ko">게시판 제목 이미지 대체 텍스트</description>
+			<description xml:lang="en">Board Title Image Alt</description>
+        </var>
+		<var name="write_toggle" type="radio">
+            <title xml:lang="ko">글쓰기 토글 사용(목록에 본문을 표시하는 유형만 적용)</title>
+            <title xml:lang="en">Write toggle - only for list_read</title>
+			<description xml:lang="ko">글이 안 써지면 아니오를 선택</description>
+			<description xml:lang="en">If writing is not working, choose NO</description>
+			<options value="">
+				<title xml:lang="ko">예</title>
+				<title xml:lang="en">yes</title>
+			</options>
+			<options value="no">
+				<title xml:lang="ko">아니오</title>
+				<title xml:lang="en">no</title>
+			</options>
+        </var>
+		<var name="list_category" type="radio">
+            <title xml:lang="ko">일반형 - 목록에서 카테고리 출력</title>
+            <title xml:lang="en">List category</title>
+			<options value="seperate">
+				<title xml:lang="ko">예(제목셀에 표시, 미분류는 미표시)</title>
+				<title xml:lang="en">yes(in title cell)</title>
+			</options>
+			<options value="td">
+				<title xml:lang="ko">예(별도의 셀에 표시)</title>
+				<title xml:lang="en">yes(in new cell)</title>
+			</options>
+			<options value="no">
+				<title xml:lang="ko">아니오</title>
+				<title xml:lang="en">no</title>
+			</options>
+        </var>
+		<var name="list_style" type="radio">
+            <title xml:lang="ko">일반형 - 목록 스타일</title>
+            <title xml:lang="en">Normal - List style</title>
+			<options value="">
+				<title xml:lang="ko">일반</title>
+				<title xml:lang="en">normal</title>
+			</options>
+			<options value="link">
+				<title xml:lang="ko">링크(제목에 사이트 링크, 확장변수 link_url 필요)</title>
+				<title xml:lang="en">link(required extra value &quot;link_url&quot;)</title>
+			</options>
+        </var>
+		<var name="diary_name" type="radio">
+            <title xml:lang="ko">일기장 - 글쓴이 닉네임 표시</title>
+            <title xml:lang="en">Diary - display nickname</title>
+			<options value="">
+				<title xml:lang="ko">미표시</title>
+				<title xml:lang="en">no display</title>
+			</options>
+			<options value="display">
+				<title xml:lang="ko">표시(공동 다이어리에 적합함)</title>
+				<title xml:lang="en">display</title>
+			</options>
+        </var>
+		<var name="diary_category" type="radio">
+            <title xml:lang="ko">일기장 - 본문 카테고리 표시</title>
+            <title xml:lang="en">Diary - display category in post</title>
+			<options value="">
+				<title xml:lang="ko">미표시</title>
+				<title xml:lang="en">no display</title>
+			</options>
+			<options value="display">
+				<title xml:lang="ko">표시</title>
+				<title xml:lang="en">display</title>
+			</options>
+        </var>
+		<var name="memo_comment" type="radio">
+            <title xml:lang="ko">일반 메모장 - 댓글 표시</title>
+            <title xml:lang="en">Normal memo - display comment</title>
+			<options value="">
+				<title xml:lang="ko">펼치기</title>
+				<title xml:lang="en">display</title>
+			</options>
+			<options value="hide">
+				<title xml:lang="ko">숨기기</title>
+				<title xml:lang="en">hide</title>
+			</options>
+        </var>
+		<var name="gallery_thumbwidth" type="text">
+            <title xml:lang="ko">갤러리 - 목록 썸네일 넓이(넓이와 높이를 같게 하는 것을 추천)</title>
+            <title xml:lang="en">Gallery - list thumbnail width</title>
+        </var>
+		<var name="gallery_thumbheight" type="text">
+            <title xml:lang="ko">갤러리 - 목록 썸네일 높이</title>
+            <title xml:lang="en">Gallery - list thumbnail height</title>
+        </var>
+		<var name="bannerlink_category" type="radio">
+            <title xml:lang="ko">배너 링크 - 카테고리 표시</title>
+            <title xml:lang="en">Banner link - display category</title>
+			<options value="">
+				<title xml:lang="ko">미표시</title>
+				<title xml:lang="en">no display</title>
+			</options>
+			<options value="display">
+				<title xml:lang="ko">표시</title>
+				<title xml:lang="en">display</title>
+			</options>
+        </var>
+	</extra_vars>
+</skin>
+

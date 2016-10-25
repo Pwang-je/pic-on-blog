@@ -1,0 +1,54 @@
+<div class="board_read">
+	<!-- READ HEADER -->
+	<div class="read_header">
+		<p class="title">
+			<a href="{$oDocument->getPermanentUrl()}"|cond="!$document_srl" href="{getUrl('document_srl','')}"|cond="$document_srl">
+				<!--@if($document_srl)-->
+					{$oDocument->get('document_srl')}<span cond="$oDocument->get('document_srl') == 1">st</span><span cond="$oDocument->get('document_srl') == 2">nd</span><span cond="$oDocument->get('document_srl') == 3">rd</span><span cond="$oDocument->get('document_srl') >= 4">th</span>
+				<!--@else-->
+					{$no}<span cond="$no == 1">st</span><span cond="$no == 2">nd</span><span cond="$no == 3">rd</span><span cond="$no >= 4">th</span>
+				<!--@end-->
+				<span>Message</span>
+				<span class="secretMark" cond="$oDocument->isSecret() && $oDocument->isGranted()">secret</span>
+			</a>
+			<span class="btnArea">
+				<span cond="$oDocument->getCommentcount() || $oDocument->isEnableComment()"><a class="board_btn" href="#" onclick="showhide('comment_write_{$oDocument->document_srl}'); return false;">{$lang->comment}</a></span>
+				<!--// <input cond="$grant->manager" type="checkbox" name="cart" value="{$oDocument->document_srl}" class="iCheck" title="Check This Article" onclick="doAddDocumentCart(this)" checked="checked"|cond="$oDocument->isCarted()" /> 체크박스 오류시 대체용 -->
+				<input cond="$grant->manager" type="checkbox" id="ic_{$oDocument->document_srl}" name="cart" value="{$oDocument->document_srl}" class="iCheck" title="Check This Article" onclick="doAddDocumentCart(this)" checked="checked"|cond="$oDocument->isCarted()" /><label cond="$grant->manager" for="ic_{$oDocument->document_srl}"></label>
+				<a class="document_{$oDocument->document_srl}" href="#popup_menu_area" onclick="return false">추가메뉴<!--// {$lang->cmd_document_do} --></a>
+				<a cond="$oDocument->isEditable()" href="{getUrl('act','dispBoardWrite','document_srl',$oDocument->document_srl,'comment_srl','')}">{$lang->cmd_modify}</a>
+				<a cond="$oDocument->isEditable()" href="{getUrl('act','dispBoardDelete','document_srl',$oDocument->document_srl,'comment_srl','')}">{$lang->cmd_delete}</a>
+				<a href="{getUrl('document_srl','')}" cond="!$oDocument->isEnableComment() && !$oDocument->getCommentcount()">{$lang->cmd_list}</a>
+			</span>
+		</p>
+		<p class="meta">
+			<span class="name">
+				<a cond="$module_info->display_author!='N' && !$oDocument->getMemberSrl() && $oDocument->isExistsHomepage()" href="{$oDocument->getHomepageUrl()}" onclick="window.open(this.href);return false;" class="author">by {$oDocument->getNickName()}</a>
+				<block cond="$module_info->display_author!='N' && !$oDocument->getMemberSrl() && !$oDocument->isExistsHomepage()">by {$oDocument->getNickName()}</block>
+				<a cond="$module_info->display_author!='N' && $oDocument->getMemberSrl()" href="#popup_menu_area" class="member_{$oDocument->get('member_srl')} author" onclick="return false">by {$oDocument->getNickName()}</a>
+			</span>
+			<span class="date">{$oDocument->getRegdate('F j, Y H:i')}</span>
+		</p>
+	</div>
+	<!-- /READ HEADER -->
+	<!-- READ BODY -->
+	<div class="read_body">
+		<!--@if($oDocument->isSecret() && !$oDocument->isGranted())-->
+			<!--@if(!$oDocument->get('member_srl'))-->
+			<form action="./" method="get" onsubmit="return procFilter(this, input_password)" class="secret">
+				<input type="hidden" name="mid" value="{$mid}" />
+				<input type="hidden" name="page" value="{$page}" />
+				<input type="hidden" name="document_srl" value="{$oDocument->document_srl}" />
+				<div class="desc"><label for="cpw" class="secret">secret message...</label></div>
+				<div><input type="password" name="password" id="cpw" class="iText" /><input type="submit" value="{$lang->cmd_input}" /></div>
+			</form>
+			<!--@else-->
+			<span class="secret">secret message...</span>
+			<!--@end-->
+		<!--@else-->
+		{$oDocument->getContent(false)}
+		<!--@end-->
+	</div>
+	<!-- /READ BODY -->
+</div>
+<include target="_comment.html" />

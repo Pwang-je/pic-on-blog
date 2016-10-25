@@ -1,0 +1,263 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,100,100italic,300italic,400italic,500,500italic);
+
+/* Board List */
+
+/* Board Read */
+.board_read{
+position:relative;
+width:100%;
+margin-top:10px;
+padding-bottom:10px;
+clear:both;
+border-bottom:1px dashed #ccc;
+}
+.viewDocument:last-of-type{
+border-bottom:2px solid #ccc;
+}
+.read_header{
+width:auto;
+margin-right:7px;
+float:left;
+line-height:1.5;
+font-weight:bold;
+}
+.noticeDocument .read_header .name{
+font-family:'Roboto';
+font-weight:400;
+}
+.read_body{
+overflow:hidden;
+}
+.read_body .xe_content{
+display:inline;
+}
+.read_body .time{
+margin-left:5px;
+font-family: 'Roboto';
+font-weight:400;
+font-size:10.5px;
+color:#777;
+line-height:1.5;
+}
+.board_read:hover .edit{
+display:block;
+}
+.noticeDocument .read_body .edit{
+top:-12px;
+text-align:right;
+}
+.read_body .edit{
+display:none;
+padding:1px;
+border:1px solid #ccc;
+position:absolute;
+top:-2px;
+right:0;
+margin-left:5px;
+line-height:1.5;
+font-size:10.5px;
+color:#777;
+background:#fff;
+}
+.read_body .edit a{
+padding:0 2px;
+}
+.read_body .edit a:link, .read_body .edit a:visited{
+color:#777;
+}
+.read_body label{
+font-size:11px;
+padding:0 2px;
+}
+.read_body .iCheck + label:before {
+    content:"선택";
+}
+.read_body .iCheck:checked + label:before {
+    content:"선택됨";
+    font-weight:bold;
+}
+.read_body .allc .iCheck + label:before {
+    content:"전체선택";
+}
+.read_body .allc .iCheck:checked + label:before {
+    content:"전체선택됨";
+    font-weight:bold;
+}
+.read_body .iCheck {
+    display:none;
+}
+
+/* Comment */
+.feedback .fbList{
+list-style-type:none;
+margin:0;
+padding:0;
+overflow:hidden;
+}
+.feedback .fbItem{
+position:relative;
+width:100%;
+margin-top:10px;
+padding-bottom:10px;
+clear:both;
+border-bottom:1px dashed #ccc;
+}
+.viewDocument:last-of-type .feedback .fbItem:last-of-type{
+border-bottom:0;
+}
+.feedback .fbList .fbMeta{
+width:auto;
+margin-right:7px;
+float:left;
+line-height:1.5;
+font-weight:bold;
+}
+.feedback .fbList .fbMeta .author .replyMark{
+font-family:'Roboto';
+font-weight:400;
+}
+.feedback .fbList .fbMeta .author a{
+font-weight:bold;
+}
+.feedback .fbList .comment_body{
+overflow:hidden;
+}
+.feedback .fbList .comment_body .xe_content{
+display:inline;
+}
+.feedback .fbList .comment_body .time{
+margin-left:5px;
+font-family: 'Roboto';
+font-weight:400;
+font-size:10.5px;
+color:#777;
+line-height:1.5;
+}
+.feedback .fbList .comment_body .action{
+display:none;
+padding:3px;
+border:1px solid #ccc;
+position:absolute;
+top:-2px;
+right:0;
+margin-left:5px;
+line-height:1.5;
+font-size:10.5px;
+color:#777;
+background:#fff;
+}
+.feedback .fbItem:hover .action{
+display:block;
+}
+.feedback .fbList .comment_body .action a{
+padding:0 2px;
+}
+.comment_body .action a:link, .comment_body .action a:visited{
+color:#777;
+}
+.feedback .fbList .indent{
+padding-left:10px;
+}
+.feedback .fbList .indent .action{
+right:10px;
+}
+.feedback .fbList .indent2{
+padding-left:20px;
+}
+.feedback .fbList .indent2 .action{
+right:20px;
+}
+.feedback .fbList .indent3{
+padding-left:30px;
+}
+.feedback .fbList .indent3 .action{
+right:30px;
+}
+.feedback .fbList .indent4{
+padding-left:40px;
+}
+.feedback .fbList .indent4 .action{
+right:40px;
+}
+.feedback .fbList .indent5{
+padding-left:50px;
+}
+.feedback .fbList .inden5t .action{
+right:50px;
+}
+.feedback .fbList .indent6{
+padding-left:60px;
+}
+.feedback .fbList .indent6 .action{
+right:60px;
+}
+.feedback .fbList .indent7{
+padding-left:70px;
+}
+.feedback .fbList .indent7 .action{
+right:70px;
+}
+.feedback .fbList .indent8{
+padding-left:80px;
+}
+.feedback .fbList .indent8 .action{
+right:80px;
+}
+.feedback .fbList .indent9{
+padding-left:90px;
+}
+.feedback .fbList .indent9 .action{
+right:90px;
+}
+.feedback .fbList .indent10{
+padding-left:100px;
+}
+.feedback .fbList .indent10 .action{
+right:100px;
+}
+.feedback .fbList .indent11{
+padding-left:110px;
+}
+.feedback .fbList .indent11 .action{
+right:110px;
+}
+.feedback .fbList .indent12{
+padding-left:120px;
+}
+.feedback .fbList .indent12 .action{
+right:120px;
+}
+.feedback .pagination{
+margin:0;
+padding:10px 0;
+border-bottom:1px dashed #ccc;
+}
+.feedback form .write_author{
+padding:10px 0;
+}
+.feedback button[type="submit"]{
+float:right;
+margin-top:5px;
+padding:0;
+}
+.fbFooter{
+padding:10px 0;
+border-top:1px dashed #ccc;
+text-align:right;
+}
+
+/* Secret content */
+.read_body .secret, .feedback .secret{
+display:block;
+line-height:1.5;
+}
+.read_body .secret .desc, .feedback .secret .desc{
+margin-bottom:0;
+}
+.read_body .secretMark, .feedback .secretMark{
+margin-left:10px;
+font-size:10px;
+font-family:'Roboto';
+font-weight:400;
+}

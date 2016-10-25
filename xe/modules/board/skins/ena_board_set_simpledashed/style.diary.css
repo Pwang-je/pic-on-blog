@@ -1,0 +1,225 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,100,100italic,300italic,400italic,500,500italic);
+
+/* Board List */
+
+/* Board Read */
+.board .viewDocument{
+margin-bottom:30px;
+border-top:1px solid #ccc;
+border-bottom:1px solid #ccc;
+}
+.board .viewDocument:last-child{
+margin-bottom:0;
+}
+.board .noticeDocument{
+margin-bottom:30px;
+border-top:2px solid #ccc;
+border-bottom:2px solid #ccc;
+}
+.board .noticeDocument:first-child{
+margin-top:0;
+}
+.board .noticeDocument:last-child{
+margin-bottom:30px;
+}
+.board .read_header{
+border-bottom:1px dashed #ccc;
+margin-bottom:10px;
+}
+.board .read_header .titleWrap{
+margin:0;
+padding:10px 0;
+}
+.board .read_header .titleWrap .title{
+font-family: 'Roboto';
+font-weight:400;
+font-size:17px;
+}
+.board .read_header .titleWrap .category{
+margin-top:3px;
+float:right;
+font-size:11px;
+font-weight:normal;
+}
+.board .read_header .meta{
+margin:0;
+padding-bottom:10px;
+font-size:11px;
+}
+.board .read_header .meta .name{
+font-style:italic;
+color:#777;
+}
+.board .read_header .meta .name a:link, .board .read_header .meta .name a:visited{
+color:#777;
+}
+.board .read_footer .btnArea{
+margin:0;
+margin-top:10px;
+padding:10px 0;
+border-top:1px dashed #ccc;
+}
+.board .read_footer .btnArea a:first-child{
+padding-left:0;
+}
+.board .read_footer .btnArea a:last-child{
+padding-right:0;
+}
+.board .read_footer .btnArea .iCheck + label:before {
+    content:"선택";
+	padding:5px;
+}
+.board .read_footer .btnArea .iCheck:checked + label:before {
+    content:"선택됨";
+    font-weight:bold;
+}
+.board .read_footer .btnArea .allc .iCheck + label:before {
+    content:"전체선택";
+}
+.board .read_footer .btnArea .allc .iCheck:checked + label:before {
+    content:"전체선택됨";
+    font-weight:bold;
+}
+.board .read_footer .btnArea .iCheck {
+    display:none;
+}
+.diary_notice .read_body{
+padding:10px 0;
+}
+.diary_notice .btnArea{
+margin-top:0 !important;
+}
+
+/* comment */
+.feedback{
+border-top:1px dashed #ccc;
+}
+.feedback .fbHeader{
+display:none;
+margin:0;
+padding:10px 0;
+font-size:13px;
+font-weight:bold;
+border-bottom:1px dashed #ccc;
+}
+.feedback .fbList{
+list-style-type:none;
+margin:0;
+padding:0;
+}
+.feedback .indentMark{
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    width: 10px;
+    height: 12px;
+    display: inline-block;
+    position: absolute;
+	top:5px;
+}
+.feedback .indentMark:after{
+    content: '';
+	border:5px solid #ccc;
+	border-right:0;
+	border-top-color:transparent;
+	border-bottom-color:transparent;
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    left: 10px;
+    top: 8px;
+}
+.feedback .fbList .fbItem{
+position:relative;
+border-bottom:1px dashed #ccc;
+}
+.feedback .fbList .fbMeta{
+margin:0;
+padding:10px 0;
+}
+.feedback .fbList .fbMeta .author{
+padding-right:3px;
+}
+.feedback .fbList .fbMeta .time{
+font-size:10.5px;
+font-family: 'Roboto';
+color:#777;
+}
+.feedback .fbList .fbMeta .action{
+float:right;
+font-size:10.5px;
+color:#777;
+display:none;
+position:absolute;
+right:0;
+}
+.feedback .fbList .fbMeta .action a{
+margin-left:5px;
+color:#777;
+}
+.feedback .fbList .fbItem:hover .action{
+display:inline;
+}
+.feedback .fbList .comment_body{
+padding-bottom:10px;
+}
+.feedback .fbList .indent{
+padding-left:10px;
+}
+.feedback .fbList .indent2{
+padding-left:20px;
+}
+.feedback .fbList .indent3{
+padding-left:30px;
+}
+.feedback .fbList .indent4{
+padding-left:40px;
+}
+.feedback .fbList .indent5{
+padding-left:50px;
+}
+.feedback .fbList .indent6{
+padding-left:60px;
+}
+.feedback .fbList .indent7{
+padding-left:70px;
+}
+.feedback .fbList .indent8{
+padding-left:80px;
+}
+.feedback .fbList .indent9{
+padding-left:90px;
+}
+.feedback .fbList .indent10{
+padding-left:100px;
+}
+.feedback .fbList .indent11{
+padding-left:110px;
+}
+.feedback .fbList .indent12{
+padding-left:120px;
+}
+.feedback .pagination{
+margin:0;
+padding:20px 0;
+border-bottom:1px dashed #ccc;
+}
+.feedback form .write_author{
+padding:10px 0;
+}
+.feedback button[type="submit"]{
+float:right;
+margin-top:5px;
+padding:0;
+}
+.fbFooter{
+padding:10px 0;
+border-top:1px dashed #ccc;
+text-align:right;
+}
+.read_header .secretMark, .feedback .secretMark{
+margin-left:10px;
+font-size:10px;
+font-family:'Roboto';
+font-weight:400;
+}

@@ -1,0 +1,278 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,100,100italic,300italic,400italic,500,500italic);
+
+/* Board List */
+
+
+/* Extra Form */
+
+/* Board Read */
+.board .viewDocument:first-child{
+border-top:2px solid #ccc; 
+}
+.board .viewDocument:last-child{
+border-bottom:2px solid #ccc;
+}
+.board .viewDocument:last-child .board_read{
+border-bottom:0;
+}
+.board .noticeDocument{
+border-top:2px solid #ccc;
+border-bottom:2px solid #ccc;
+margin-bottom:20px;
+}
+.board .noticeDocument .board_read{
+border-bottom:0;
+}
+.board .noticeDocument:first-child{
+margin-top:0;
+}
+.board .noticeDocument:last-child{
+margin-bottom:30px;
+}
+.board .noticeDocument .read_body{
+margin:10px 0;
+}
+.board .board_read{
+position:relative;
+border-bottom:1px dashed #ccc;
+}
+.board .read_header .titleWrap{
+margin:10px 0;
+}
+.board .read_header .titleWrap .date{
+font-family: 'Roboto';
+font-weight:400;
+}
+.board .read_header .titleWrap .category{
+float:right;
+font-size:11px;
+font-weight:normal;
+}
+.board .read_footer .name{
+float:left;
+padding-right:5px;
+font-size:11px;
+font-style:italic;
+color:#777;
+}
+.board .read_footer .name a:link, .board .read_footer .name a:visited{
+color:#777;
+}
+.noticeDocument .btnArea{
+border-top:1px dashed #ccc;
+}
+.board .read_footer .btnArea{
+margin:0;
+padding:10px 0;
+font-size:11px;
+padding-top:10px;
+color:#777;
+}
+.board .read_footer .btnArea a{
+color:#777;
+}
+.board .read_footer .btnArea a:first-child{
+padding-left:0;
+}
+.board .read_footer .btnArea a:last-child{
+padding-right:0;
+}
+.board .read_footer .btnArea label{
+font-size:11px;
+}
+.board .read_footer .action{
+display:none;
+position:absolute;
+right:0;
+}
+.board .board_read:hover .action{
+display:block;
+}
+.board .btnArea .iCheck + label:before {
+    content:"선택";
+	padding:5px;
+}
+.board .btnArea .iCheck:checked + label:before {
+    content:"선택됨";
+    font-weight:bold;
+}
+.board .btnArea .allc .iCheck + label:before {
+    content:"전체선택";
+}
+.board .btnArea .allc .iCheck:checked + label:before {
+    content:"전체선택됨";
+    font-weight:bold;
+}
+.board .btnArea .iCheck {
+    display:none;
+}
+
+/* Comment */
+.board .viewDocument:last-child .feedback{
+
+}
+.feedback .fbHeader{
+display:none;
+margin:0;
+padding:10px 0;
+font-size:13px;
+font-weight:bold;
+border-top:1px dashed #ccc;
+border-bottom:1px dashed #ccc;
+}
+.feedback .fbList{
+list-style-type:none;
+margin:0;
+padding:0;
+}
+.feedback .fbList .fbItem{
+position:relative;
+border-bottom:1px dashed #ccc;
+}
+.feedback .fbList .fbItem:first-child{
+border-bottom:1px dashed #ccc;
+}
+.board .viewDocument:last-child .feedback .fbItem:first-child{
+border-top:1px dashed #ccc;
+}
+.board .viewDocument:last-child .feedback .fbItem:last-child{
+border-bottom:0;
+}
+.feedback .indentMark{
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    position: absolute;
+}
+.feedback .indentMark:after{
+    content: '';
+	border:5px solid #ccc;
+	border-right:0;
+	border-top-color:transparent;
+	border-bottom-color:transparent;
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    left: 10px;
+    top: 6px;
+}
+.board .viewDocument:last-child .feedback .fbItem:first-child .indentMark{
+top:10px;
+}
+.feedback .fbItemWrap{
+margin-left:15px;
+margin-bottom:10px;
+padding-left:10px;
+}
+.feedback .fbList .fbMeta{
+margin:10px 0;
+}
+.feedback .fbList .fbMeta .time{
+font-family: 'Roboto';
+font-weight:400;
+}
+.feedback .fbList .comment_footer{
+margin:0;
+padding-top:10px;
+font-size:11px;
+color:#777;
+}
+.feedback .fbList .comment_footer a{
+padding:5px;
+color:#777;
+}
+.feedback .fbList .comment_footer a:first-child{
+padding-left:0;
+}
+.feedback .fbList .comment_footer a:last-child{
+padding-right:0;
+}
+.feedback .fbList .comment_footer .author{
+padding-right:5px;
+font-size:11px;
+font-style:italic;
+color:#777;
+}
+.feedback .fbList .comment_footer .author a:link, .feedback .fbList .comment_footer .author a:visited{
+color:#777;
+}
+.feedback .fbList .comment_footer .action{
+float:right;
+display:none;
+position:absolute;
+right:0;
+bottom:10px;
+}
+.feedback .fbList .fbItem:hover .action{
+display:block;
+}
+.feedback .fbList .indent{
+padding-left:10px;
+}
+.feedback .fbList .indent2{
+padding-left:20px;
+}
+.feedback .fbList .indent3{
+padding-left:30px;
+}
+.feedback .fbList .indent4{
+padding-left:40px;
+}
+.feedback .fbList .indent5{
+padding-left:50px;
+}
+.feedback .fbList .indent6{
+padding-left:60px;
+}
+.feedback .fbList .indent7{
+padding-left:70px;
+}
+.feedback .fbList .indent8{
+padding-left:80px;
+}
+.feedback .fbList .indent9{
+padding-left:90px;
+}
+.feedback .fbList .indent10{
+padding-left:100px;
+}
+.feedback .fbList .indent11{
+padding-left:110px;
+}
+.feedback .fbList .indent12{
+padding-left:120px;
+}
+.feedback .pagination{
+margin:0;
+padding:20px 0;
+border-bottom:1px dashed #ccc;
+}
+.feedback form .write_author{
+padding:10px 0;
+border-bottom:1px dashed #ccc;
+}
+.board .viewDocument:last-child .feedback form .write_author{
+border-bottom:0;
+}
+.board .viewDocument:last-child .feedback .mess{
+border-bottom:0 !important;
+}
+.feedback button[type="submit"]{
+float:right;
+margin-top:5px;
+padding:0;
+}
+.fbFooter{
+padding:10px 0;
+border-top:1px dashed #ccc;
+text-align:right;
+}
+.read_header .secretMark, .feedback .secretMark{
+margin-left:10px;
+font-size:10px;
+font-family:'Roboto';
+font-weight:400;
+}
